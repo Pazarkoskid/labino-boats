@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gallery - Labino Boats</title>
+    <script src="js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-header {
+            text-align: center;
+            padding: 10px 20px 30px;
+        }
+        .gallery-header h1 {
+            font-weight: bold;
+            font-size: 2.8rem;
+            color: #333;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid white;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="homePage.html">Labino Boats</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link " href="homePage.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="toursPage.html">Tours</a></li>
+                <li class="nav-item"><a class="nav-link active" href="galeryPage.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactPage.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="gallery-header">
+    <h1 style="color: white">Our Gallery</h1>
+    <p class="text-light">Moments from the lake you'll never forget</p>
+</div>
+
+<div class="container" style="padding-bottom: 50px">
+    <div class="row g-4">
+        <div class="col-md-4 col-sm-6">
+            <img src="images/2.png" class="gallery-img" alt="Gallery Image 1">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <img src="images/ohridPhoto.png" class="gallery-img" alt="Gallery Image 2">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <img src="images/ohrid-north-macedonia-10.jpg" class="gallery-img" alt="Gallery Image 3">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <img src="images/screen_2x-1200x800.jpg" class="gallery-img" alt="Gallery Image 4">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <img src="images/unnamed.jpg" class="gallery-img" alt="Gallery Image 5">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <img src="images/2.png" class="gallery-img" alt="Gallery Image 6">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <img src="images/ohridPhoto.png" class="gallery-img" alt="Gallery Image 2">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <img src="images/ohridPhoto.png" class="gallery-img" alt="Gallery Image 2">
+        </div>
+    </div>
+</div>
+<footer class="bg-dark text-white text-center py-2">
+    <div class="container">
+        <img src="icons/facebook.png" onclick="window.open('https://www.facebook.com/people/Labino-Cruises-Ohrid/100049803884439/#')" class="img-social" style="cursor: pointer; margin-top: 10px; margin-right: 10px" alt="social-media"><img src="icons/instagram.png" onclick="window.open('https://www.instagram.com/labinocruises?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')" class="img-social" style="cursor: pointer; margin-top: 10px;" alt="social-media">
+        <p style="margin-top: 5px">&copy; 2025 Labino Boats. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

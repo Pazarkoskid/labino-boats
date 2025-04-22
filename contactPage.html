@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact Us - Labino Boats</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f0f4ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .contact-container {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+            color: white;
+            border-radius: 25px;
+            padding: 60px 30px;
+            margin: 98px auto;
+            max-width: 700px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            object-fit: cover;
+            border: 3px solid white;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background-color: white;
+            margin: 0 auto 40px auto;
+            border-radius: 2px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.4rem;
+            margin-right: 12px;
+            color: white;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #d0d7ff;
+        }
+        .contact-container:hover{
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container">
+        <a class="navbar-brand" href="homePage.html">Labino Boats</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link " href="homePage.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="toursPage.html">Tours</a></li>
+                <li class="nav-item"><a class="nav-link " href="galeryPage.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contactPage.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="contact-container">
+    <h2>Contact Us</h2>
+    <div class="divider"></div>
+
+    <div class="contact-item">
+        <i class="bi bi-telephone-fill"></i>
+        <span><strong>+389 77 604 492</strong> / <strong>+389 78 697 031</strong></span>
+    </div>
+
+    <div class="contact-item">
+        <i class="bi bi-envelope-fill"></i>
+        <span>pazarkoskidaniel123@gmail.com</span>
+    </div>
+
+    <div class="contact-item">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>Port of Ohrid, Ohrid 6000</span>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-2">
+    <div class="container">
+        <img src="icons/facebook.png" onclick="window.open('https://www.facebook.com/people/Labino-Cruises-Ohrid/100049803884439/#')" class="img-social" style="cursor: pointer; margin-top: 10px; margin-right: 10px" alt="social-media"><img src="icons/instagram.png" onclick="window.open('https://www.instagram.com/labinocruises?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')" class="img-social" style="cursor: pointer; margin-top: 10px;" alt="social-media">
+        <p style="margin-top: 5px">&copy; 2025 Labino Boats. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

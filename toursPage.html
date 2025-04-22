@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Our Tours</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+        }
+
+        .tour-card {
+            border-radius: 12px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin-top: 20px;
+        }
+
+        .tour-img {
+            border-radius: 10px;
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        #book-now-button{
+            width: 100%;
+            height: 50px;
+            object-fit: cover;
+            margin-top: 10px;
+            background: #2193b0;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            border-color: white;
+            font-size: large;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #2193b0;
+            font-size: large;
+        }
+
+        .info-value {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .highlight i,
+        .includes i {
+            color: #6f42c1;
+            margin-right: 8px;
+        }
+
+        .highlight p,
+        .includes div {
+            margin: 0.25rem 0;
+        }
+
+        .includes div {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .includes i {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+
+    </style>
+    <script src="js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="homePage.html">Labino Boats</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="homePage.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="toursPage.html">Tours</a></li>
+                <li class="nav-item"><a class="nav-link" href="galeryPage.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactPage.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container py-4">
+    <h2 class="fw-bold text-light">Our Tours</h2>
+    <p class="mb-4 text-light">
+        Discover our carefully curated tours designed to showcase the best experiences. Each tour offers unique perspectives and unforgettable memories.
+    </p>
+    <div>
+    <div class="tour-card">
+        <h4 class="fw-bold mb-3">City Explorer Tour</h4>
+        <img src="images/ohridPhoto.png" alt="City Explorer" class="tour-img mb-3" />
+
+        <p class="text-muted">
+            Immerse yourself in the vibrant culture and rich history of our city with our comprehensive City Explorer Tour. Perfect for first-time visitors and history enthusiasts alike.
+        </p>
+
+        <div class="row text-center mt-4 mb-3">
+            <div class="col-md-4">
+                <div class="info-label">Duration</div>
+                <div class="info-value">4 hours</div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-label">Price</div>
+                <div class="info-value">$49 per person</div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-label">Group Size</div>
+                <div class="info-value">Max 12 people</div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="highlight mb-4">
+            <h6 class="fw-semibold mb-2">Highlights</h6>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Historic Downtown District</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Cultural Arts Center</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Local Market Experience</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Riverside Walk</p>
+        </div>
+
+        <hr />
+
+        <div class="includes">
+            <h6 class="fw-semibold mb-3">Includes</h6>
+            <div class="row">
+                <div class="col-3"><i class="fas fa-coffee"></i>Coffee Break</div>
+                <div class="col-3"><i class="fas fa-bus-alt"></i>Transport</div>
+                <div class="col-3"><i class="fas fa-user-tie"></i>Guide</div>
+                <div class="col-3"><i class="fas fa-camera"></i>Photo Stops</div>
+            </div>
+        </div>
+        <hr />
+        <div class="button-book mb-3">
+            <a href="contactPage.html" class="btn" style="width: 100%;
+            height: 50px;
+            object-fit: cover;
+            margin-top: 10px;
+            padding-top: 10px;
+            background: #6dd5ed;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            border-color: white;
+            font-size: large;
+            text-align: center">Book now</a>
+        </div>
+    </div>
+    </div>
+    <div class="tour-card">
+        <h4 class="fw-bold mb-3">City Explorer Tour</h4>
+        <img src="images/2.png" alt="City Explorer" class="tour-img mb-3" />
+
+        <p class="text-muted">
+            Immerse yourself in the vibrant culture and rich history of our city with our comprehensive City Explorer Tour. Perfect for first-time visitors and history enthusiasts alike.
+        </p>
+
+        <div class="row text-center mt-4 mb-3">
+            <div class="col-md-4">
+                <div class="info-label">Duration</div>
+                <div class="info-value">4 hours</div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-label">Price</div>
+                <div class="info-value">$49 per person</div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-label">Group Size</div>
+                <div class="info-value">Max 12 people</div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="highlight mb-4">
+            <h6 class="fw-semibold mb-2">Highlights</h6>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Historic Downtown District</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Cultural Arts Center</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Local Market Experience</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Riverside Walk</p>
+        </div>
+
+        <hr />
+
+        <div class="includes">
+            <h6 class="fw-semibold mb-3">Includes</h6>
+            <div class="row">
+                <div class="col-3"><i class="fas fa-coffee"></i>Coffee Break</div>
+                <div class="col-3"><i class="fas fa-bus-alt"></i>Transport</div>
+                <div class="col-3"><i class="fas fa-user-tie"></i>Guide</div>
+                <div class="col-3"><i class="fas fa-camera"></i>Photo Stops</div>
+            </div>
+        </div>
+        <hr />
+        <div class="button-book mb-3">
+            <a href="contactPage.html" class="btn" style="width: 100%;
+            height: 50px;
+            object-fit: cover;
+            margin-top: 10px;
+            padding-top: 10px;
+            background: #6dd5ed;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            border-color: white;
+            font-size: large;
+            text-align: center">Book now</a>
+        </div>
+    </div>
+    <div class="tour-card">
+        <h4 class="fw-bold mb-3">City Explorer Tour</h4>
+        <img src="images/2.png" alt="City Explorer" class="tour-img mb-3" />
+
+        <p class="text-muted">
+            Immerse yourself in the vibrant culture and rich history of our city with our comprehensive City Explorer Tour. Perfect for first-time visitors and history enthusiasts alike.
+        </p>
+
+        <div class="row text-center mt-4 mb-3">
+            <div class="col-md-4">
+                <div class="info-label">Duration</div>
+                <div class="info-value">4 hours</div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-label">Price</div>
+                <div class="info-value">$49 per person</div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-label">Group Size</div>
+                <div class="info-value">Max 12 people</div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="highlight mb-4">
+            <h6 class="fw-semibold mb-2">Highlights</h6>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Historic Downtown District</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Cultural Arts Center</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Local Market Experience</p>
+            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Riverside Walk</p>
+        </div>
+
+        <hr />
+
+        <div class="includes">
+            <h6 class="fw-semibold mb-3">Includes</h6>
+            <div class="row">
+                <div class="col-3"><i class="fas fa-coffee"></i>Coffee Break</div>
+                <div class="col-3"><i class="fas fa-bus-alt"></i>Transport</div>
+                <div class="col-3"><i class="fas fa-user-tie"></i>Guide</div>
+                <div class="col-3"><i class="fas fa-camera"></i>Photo Stops</div>
+            </div>
+        </div>
+        <hr />
+        <div class="button-book mb-3">
+            <a href="contactPage.html" class="btn" style="width: 100%;
+            height: 50px;
+            object-fit: cover;
+            margin-top: 10px;
+            padding-top: 10px;
+            background: #6dd5ed;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            border-color: white;
+            font-size: large;
+            text-align: center">Book now</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<footer class="bg-dark text-white text-center py-2">
+    <div class="container">
+        <img src="icons/facebook.png" onclick="window.open('https://www.facebook.com/people/Labino-Cruises-Ohrid/100049803884439/#')" class="img-social" style="cursor: pointer; margin-top: 10px; margin-right: 10px" alt="social-media"><img src="icons/instagram.png" onclick="window.open('https://www.instagram.com/labinocruises?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')" class="img-social" style="cursor: pointer; margin-top: 10px;" alt="social-media">
+        <p style="margin-top: 5px">&copy; 2025 Labino Boats. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
