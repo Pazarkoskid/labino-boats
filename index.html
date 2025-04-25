@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="labinologo.png">
     <title>Labino Boats</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -37,6 +38,8 @@
             border-radius: 5px;
         }
         .carousel-img {
+            width: auto;
+            height: 500px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
@@ -49,6 +52,41 @@
             margin: 10px auto 20px;
             border-radius: 5px;
         }
+        .video-section {
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            padding: 80px 20px;
+            border-radius: 20px;
+            margin: 60px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        .video-section h2 {
+            font-size: 2.5rem;
+            color: #2193b0;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            margin: 0 auto;
+            border-radius: 12px;
+            width: 200px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .video-container video {
+            border-radius: 12px;
+            width: 200px;
+            height: 350px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        ;
+        }
+        .video-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #444;
+        }
     </style>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.bundle.js"></script>
@@ -56,7 +94,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Labino Boats</a>
+        <a class="navbar-brand" href="index.html"> <img src="labinologo.png" alt="Labino Boats Logo" height="50">Labino Boats</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,9 +108,13 @@
         </div>
     </div>
 </nav>
-<div class="hero">
-    <div class="container">
-        <h1 class="display-4 fw-bold">Explore Lake Ohrid</h1>
+<div class="hero" style="position: relative; overflow: hidden;">
+    <div class="background-logo" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.1; z-index: 0;">
+        <img src="labinologo.png" alt="Labino Boats Logo" style="width: 500px; height: 800px;">
+    </div>
+    <div class="container" style="position: relative; z-index: 1;">
+        <h1 class="display-1 fw-bold">Labino Boats</h1>
+        <h2 class="display-10 fw-bold">Explore Lake Ohrid</h2>
         <p class="lead">Private boat tours, unforgettable experiences</p>
         <a href="toursPage.html" class="btn btn-light bg-light text-black btn-lg">See Tours</a>
     </div>
@@ -107,20 +149,165 @@
             Nestled on the shores of one of Europe's oldest and deepest lakes, Ohrid is a UNESCO World Heritage site known for its historical architecture, clear waters, and stunning mountain backdrop. Our catamaran tours offer a unique perspective of this ancient city and its breathtaking surroundings.
         </p>
 
-        <div id="ohridCarousel" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 800px;">
+        <div id="ohridCarousel" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 350px;">
             <div class="carousel-inner">
+                <!-- Image 1 -->
                 <div class="carousel-item active">
-                    <img src="images/viber_image_2025-04-22_16-19-22-752.jpg" style="max-height: 451px;" class="d-block w-100 carousel-img" alt="Ohrid">
+                    <img src="images/1.jpg" class="d-block carousel-img" alt="Gallery Image 1">
                 </div>
+                <!-- Image 2 -->
                 <div class="carousel-item">
-                    <img src="images/viber_image_2025-04-22_16-19-22-035.jpg" class="d-block w-100 carousel-img" style="max-height: 421px;" alt="Ohrid">
+                    <img src="images/2.jpg" class="d-block carousel-img" alt="Gallery Image 2">
                 </div>
-                <!-- Add more carousel-item blocks if needed -->
+                <!-- Image 3 -->
+                <div class="carousel-item">
+                    <img src="images/3.jpg" class="d-block carousel-img" alt="Gallery Image 3">
+                </div>
+                <!-- Image 4 -->
+                <div class="carousel-item">
+                    <img src="images/4.jpg" class="d-block carousel-img" alt="Gallery Image 4">
+                </div>
+                <!-- Image 5 -->
+                <div class="carousel-item">
+                    <img src="images/5.5.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 5">
+                </div>
+                <!-- Image 6 -->
+                <div class="carousel-item">
+                    <img src="images/5.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 6">
+                </div>
+                <!-- Image 7 -->
+                <!-- Image 8 -->
+                <div class="carousel-item">
+                    <img src="images/7.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 8">
+                </div>
+                <!-- Image 9 -->
+                <div class="carousel-item">
+                    <img src="images/8.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 9">
+                </div>
+                <!-- Image 10 -->
+                <div class="carousel-item">
+                    <img src="images/9.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 10">
+                </div>
+                <!-- Image 11 -->
+                <div class="carousel-item">
+                    <img src="images/11.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 11">
+                </div>
+                <!-- Image 12 -->
+                <div class="carousel-item">
+                    <img src="images/12.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 12">
+                </div>
+                <!-- Image 13 -->
+                <div class="carousel-item">
+                    <img src="images/13.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 13">
+                </div>
+                <!-- Image 14 -->
+                <div class="carousel-item">
+                    <img src="images/14.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 14">
+                </div>
+                <!-- Image 15 -->
+                <div class="carousel-item">
+                    <img src="images/15.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 15">
+                </div>
+                <!-- Image 16 -->
+                <div class="carousel-item">
+                    <img src="images/16.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 16">
+                </div>
+                <!-- Image 17 -->
+                <div class="carousel-item">
+                    <img src="images/17.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 17">
+                </div>
+                <!-- Image 18 -->
+                <div class="carousel-item">
+                    <img src="images/18.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 18">
+                </div>
+                <!-- Image 19 -->
+                <div class="carousel-item">
+                    <img src="images/19.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 19">
+                </div>
+                <!-- Image 20 -->
+                <div class="carousel-item">
+                    <img src="images/20.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 20">
+                </div>
+                <!-- Image 21 -->
+                <div class="carousel-item">
+                    <img src="images/21.jpg" class="d-block w-100 carousel-img" alt="Gallery Image 21">
+                </div>
+                <!-- Image 22 -->
+                <div class="carousel-item">
+                    <img src="images/image0.jpeg" class="d-block w-100 carousel-img" alt="Gallery Image 22">
+                </div>
+                <!-- Image 23 -->
+                <div class="carousel-item">
+                    <img src="images/image1.jpeg" class="d-block w-100 carousel-img" alt="Gallery Image 23">
+                </div>
+                <!-- Image 24 -->
+                <div class="carousel-item">
+                    <img src="images/image2.jpeg" class="d-block w-100 carousel-img" alt="Gallery Image 24">
+                </div>
+                <!-- Image 25 -->
+                <div class="carousel-item">
+                    <img src="images/image3.jpeg" class="d-block w-100 carousel-img" alt="Gallery Image 25">
+                </div>
+                <!-- Image 26 -->
+                <div class="carousel-item">
+                    <img src="images/image4.jpeg" class="d-block w-100 carousel-img" alt="Gallery Image 26">
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#ohridCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#ohridCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+
+    </div>
+</section>
+
+<section class="video-section">
+    <div class="container text-center">
+        <h2 class="section-title">Experience the Magic</h2>
+        <p class="lead mb-4">Watch a glimpse of our unforgettable boat tours on Lake Ohrid.</p>
+
+        <!-- Carousel -->
+        <div id="videoCarousel" class="carousel slide video-container" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <video controls>
+                        <source src="videos/0-02-05-1cde83bd3262c05a07cfda88a4c0636437b2d55579db40c5ee3a4a9234b70535_8393acf7bd247a7c.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-item">
+                    <video controls class="d-block w-100">
+                        <source src="videos/0-02-05-301fae94581ae089ffac8e7a0fad91a7684498183571f18a9cc9c8e0a2beb47d_af1b65856190a5d4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-item">
+                    <video controls class="d-block w-100">
+                        <source src="videos/0-02-05-570086f6790e798914247fbccff2f019759dfc1e98ce225474be9366b3a1e9f8_7ba0a192e58a06b.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-item">
+                    <video controls class="d-block w-100">
+                        <source src="videos/0-02-05-4763684f607f181b148fd3759818c3c7d3d0e2c246a5c3727fd4ff410e915415_ad1484e89a09e643.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="carousel-item">
+                    <video controls class="d-block w-100">
+                        <source src="videos/0-02-05-e476fce4349db28d3a17f77cc147d32f32a83ef558637cb9db5fc8c210111edc_9a14d4ef6b080a5a.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
         </div>
