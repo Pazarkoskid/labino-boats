@@ -8,146 +8,591 @@
     <link rel="icon" type="image/png" href="labinologo.png">
     <meta name="keywords" content="Labino Boats, ohrid boats,ohrid rental boats, boat rental">
     <title>Contact Us - Labino Boats Ohrid</title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <script src="js/bootstrap.bundle.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="js/bootstrap.bundle.js"></script>
     <style>
+        :root {
+            --teal-deep: #0d4f5c;
+            --teal-mid: #1a6b7a;
+            --teal-light: #2e8a9a;
+            --teal-water: #3fa9bf;
+            --gold: #e8b842;
+            --gold-light: #f5d97a;
+            --gold-deep: #c89324;
+            --cream: #f5ecd7;
+            --cream-soft: #faf4e3;
+            --dark-navy: #0a2a35;
+        }
+
+        * { box-sizing: border-box; }
+
         body {
-            background-color: #f0f4ff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: #2a2a2a;
+            background-color: var(--cream-soft);
+            margin: 0;
         }
 
-        .contact-container {
-            background: linear-gradient(135deg, #2193b0, #6dd5ed);
-            color: white;
-            border-radius: 25px;
-            padding: 60px 30px;
-            margin: 98px auto;
-            max-width: 80%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            background: linear-gradient(135deg, var(--teal-deep), var(--teal-mid)) !important;
+            box-shadow: 0 4px 20px rgba(13, 79, 92, 0.25);
+            padding: 12px 0;
+        }
+        .navbar-brand {
+            color: var(--cream) !important;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-brand img { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+        .navbar-nav .nav-link {
+            color: var(--cream) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: var(--gold-light) !important; }
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after { width: 70%; }
+        .navbar-toggler { border-color: var(--gold); }
+        .navbar-toggler-icon { filter: invert(1); }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            object-fit: cover;
-            border: 3px solid white;
-            transition: transform 0.3s ease;
+            color: var(--cream);
+            overflow: hidden;
+            background:
+                    linear-gradient(135deg, rgba(10, 42, 53, 0.7), rgba(13, 79, 92, 0.55)),
+                    url('images/12.jpg') center/cover no-repeat;
+            padding: 100px 20px 80px;
+        }
+        .page-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 42, 53, 0.4) 100%);
+            z-index: 1;
+        }
+        .page-header-content { position: relative; z-index: 2; max-width: 800px; }
+        .page-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            border-radius: 30px;
+            margin-bottom: 24px;
+            background: rgba(13, 79, 92, 0.3);
+            backdrop-filter: blur(4px);
+        }
+        .page-header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 18px;
+            text-shadow: 2px 2px 0 var(--teal-deep), 4px 4px 20px rgba(0,0,0,0.5);
+            line-height: 1;
+        }
+        .page-header p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1rem, 1.6vw, 1.2rem);
+            color: var(--cream-soft);
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
-        .contact-container h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+        /* ========== WAVE DIVIDER ========== */
+        .wave-divider {
+            position: relative;
+            height: 80px;
+            margin-top: -80px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        .wave-divider svg { width: 100%; height: 100%; display: block; }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-section {
+            padding: 60px 0 100px;
+            background: var(--cream-soft);
         }
 
-        .divider {
-            width: 80px;
-            height: 4px;
-            background-color: white;
-            margin: 0 auto 40px auto;
-            border-radius: 2px;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ========== CONTACT CARD ========== */
+        .contact-card {
+            background: linear-gradient(135deg, var(--teal-deep), var(--teal-mid));
+            color: var(--cream);
+            border-radius: 22px;
+            padding: 50px 36px;
+            box-shadow: 0 14px 40px rgba(13, 79, 92, 0.25);
+            border: 2px solid rgba(232, 184, 66, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                    radial-gradient(circle at 20% 20%, rgba(232, 184, 66, 0.12) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 80%, rgba(232, 184, 66, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .contact-card-header {
+            text-align: center;
+            margin-bottom: 36px;
+            position: relative;
+        }
+
+        .contact-card-eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .contact-card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.6rem;
+            color: var(--gold-light);
+            margin: 0 0 16px;
+            line-height: 1;
+            text-shadow: 1px 1px 0 var(--dark-navy);
+        }
+
+        .contact-card-divider {
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto;
+            border-radius: 5px;
         }
 
         .contact-item {
             display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(232, 184, 66, 0.18);
+            position: relative;
+        }
+
+        .contact-item:last-child { border-bottom: none; }
+
+        .contact-item-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+            box-shadow: 0 4px 14px rgba(232, 184, 66, 0.4);
         }
 
-        .contact-item i {
-            font-size: 1.4rem;
-            margin-right: 12px;
-            color: white;
+        .contact-item-icon i {
+            font-size: 1.25rem;
+            color: var(--dark-navy);
         }
 
-        .contact-item a {
-            color: white;
+        .contact-item-text {
+            flex-grow: 1;
+            padding-top: 4px;
+        }
+
+        .contact-item-label {
+            display: block;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: var(--cream);
+            line-height: 1.5;
+        }
+
+        .contact-item-value a {
+            color: var(--cream);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
-        .contact-item a:hover {
-            color: #d0d7ff;
-        }
-        .contact-container:hover{
-            transform: scale(1.03);
-        }
-        .map-container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 25px;
-            margin: 30px auto;
-            max-width: 700px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .contact-item-value a:hover {
+            color: var(--gold-light);
         }
 
-        .map-container iframe {
+        .contact-item-value .separator {
+            color: var(--gold);
+            margin: 0 8px;
+        }
+
+        /* ========== MAP CARD ========== */
+        .map-card {
+            background: white;
+            border-radius: 22px;
+            padding: 16px;
+            box-shadow: 0 14px 40px rgba(13, 79, 92, 0.15);
+            border: 2px solid rgba(232, 184, 66, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-card-title-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px 18px;
+        }
+
+        .map-card-title-bar .map-pin {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-navy);
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(232, 184, 66, 0.4);
+        }
+
+        .map-card-title-bar h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--teal-deep);
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .map-card-title-bar p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .map-iframe-wrap {
+            flex-grow: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 420px;
+            position: relative;
+        }
+
+        .map-iframe-wrap iframe {
             width: 100%;
-            height: 350px;
+            height: 100%;
+            min-height: 420px;
             border: none;
-            border-radius: 15px;
+            display: block;
         }
 
-        .map-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            margin-top: 60px;
+            padding: 50px 30px;
+            background:
+                    linear-gradient(135deg, rgba(10, 42, 53, 0.75), rgba(13, 79, 92, 0.65)),
+                    url('images/sveti-naum-ohridski.jpg') center/cover no-repeat;
+            border-radius: 22px;
+            text-align: center;
+            color: var(--cream);
+            border: 2px solid rgba(232, 184, 66, 0.3);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        .cta-banner h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+
+        .cta-banner p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--cream-soft);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            color: var(--dark-navy);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            padding: 14px 38px;
+            border: 2px solid var(--gold-light);
+            border-radius: 40px;
+            box-shadow: 0 6px 20px rgba(232, 184, 66, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(232, 184, 66, 0.55);
+            color: var(--dark-navy);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, var(--dark-navy), var(--teal-deep));
+            color: var(--cream);
+            padding: 50px 20px 25px;
+            text-align: center;
+        }
+        .footer-logo { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+        .social-icons { display: flex; justify-content: center; gap: 18px; margin-bottom: 20px; }
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(232, 184, 66, 0.15);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover { background: var(--gold); transform: translateY(-3px); }
+        .social-icon img {
+            width: 22px;
+            height: 22px;
+            filter: brightness(0) invert(0.95) sepia(0.4) saturate(2) hue-rotate(5deg);
+            transition: filter 0.3s ease;
+        }
+        .social-icon:hover img { filter: brightness(0) invert(0.1); }
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 25px auto;
+            max-width: 300px;
+        }
+        footer p { margin: 0; color: rgba(245, 236, 215, 0.7); font-size: 0.9rem; letter-spacing: 0.5px; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .page-header { min-height: 40vh; padding: 80px 20px 60px; }
+            .contact-card { padding: 40px 26px; }
+            .contact-card-title { font-size: 2.2rem; }
+            .contact-item-value { font-size: 0.98rem; }
+            .map-iframe-wrap, .map-iframe-wrap iframe { min-height: 320px; }
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="labinologo.png" alt="Labino Boats Logo" height="50">Labino Boats</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="labinologo.png" alt="Labino Boats Logo" height="44">
+            Labino Boats
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="toursPage.html">Tours</a></li>
-                <li class="nav-item"><a class="nav-link " href="galeryPage.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="galeryPage.html">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link active" href="contactPage.html">Contact</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="contact-container">
-    <h2>Contact Us</h2>
-    <div class="divider"></div>
 
-    <div class="contact-item">
-        <i class="bi bi-telephone-fill"></i>
-        <span><strong ><a href="tel:+38977604492">+389 77 604 492</a></strong> / <strong ><a href="tel:+38978697031">+389 78 697 031</a></strong></span>
+<!-- ========== PAGE HEADER ========== -->
+<section class="page-header">
+    <div class="page-header-content">
+        <span class="page-eyebrow">★ &nbsp; Get In Touch &nbsp; ★</span>
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you. Reach out to book a tour, ask a question, or just say hello — we're always happy to chat about Lake Ohrid.</p>
     </div>
+</section>
 
-    <div class="contact-item">
-        <i class="bi bi-envelope-fill"></i>
-        <span ><a href="mailto:boatslabino@gmail.com">boatslabino@gmail.com</a></span>
-    </div>
-
-    <div class="contact-item">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span><a href="https://maps.app.goo.gl/amQbt6umYDbP67VAA">Port of Ohrid, Ohrid 6000</a></span>
-    </div>
-    <div class="map-container text-center">
-        <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3006.0351682705495!2d20.799563!3d41.111923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDA2JzQyLjkiTiAyMMKwNDcnNTguNCJF!5e0!3m2!1smk!2smk!4v1745522824478!5m2!1smk!2smk"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
+<!-- ========== WAVE DIVIDER ========== -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#faf4e3"/>
+    </svg>
 </div>
 
-
-
-<footer class="bg-dark text-white text-center py-2">
+<!-- ========== CONTACT SECTION ========== -->
+<section class="contact-section">
     <div class="container">
-        <img src="icons/facebook.png" onclick="window.open('https://www.facebook.com/people/Labino-Cruises-Ohrid/100049803884439/#')" class="img-social" style="cursor: pointer; margin-top: 10px; margin-right: 10px" alt="social-media"><img src="icons/instagram.png" onclick="window.open('https://www.instagram.com/labinocruises?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')" class="img-social" style="cursor: pointer; margin-top: 10px;" alt="social-media">
-        <p style="margin-top: 5px">&copy; 2025 Labino Boats. All rights reserved.</p>
+        <div class="contact-grid">
+
+            <!-- ===== CONTACT CARD ===== -->
+            <div class="contact-card">
+                <div class="contact-card-header">
+                    <span class="contact-card-eyebrow">Reach Us</span>
+                    <h2 class="contact-card-title">Let's Connect</h2>
+                    <span class="contact-card-divider"></span>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <div class="contact-item-text">
+                        <span class="contact-item-label">Phone</span>
+                        <div class="contact-item-value">
+                            <a href="tel:+38977604492">+389 77 604 492</a>
+                            <span class="separator">/</span>
+                            <a href="tel:+38978697031">+389 78 697 031</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <div class="contact-item-text">
+                        <span class="contact-item-label">Email</span>
+                        <div class="contact-item-value">
+                            <a href="mailto:boatslabino@gmail.com">boatslabino@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div class="contact-item-text">
+                        <span class="contact-item-label">Location</span>
+                        <div class="contact-item-value">
+                            <a href="https://maps.app.goo.gl/amQbt6umYDbP67VAA" target="_blank">Port of Ohrid, Ohrid 6000</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="bi bi-clock-fill"></i>
+                    </div>
+                    <div class="contact-item-text">
+                        <span class="contact-item-label">Hours</span>
+                        <div class="contact-item-value">Open daily during season</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== MAP CARD ===== -->
+            <div class="map-card">
+                <div class="map-card-title-bar">
+                    <div class="map-pin"><i class="bi bi-geo-alt-fill"></i></div>
+                    <div>
+                        <h3>Find Us at the Port</h3>
+                        <p>Port of Ohrid, Ohrid 6000</p>
+                    </div>
+                </div>
+                <div class="map-iframe-wrap">
+                    <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3006.0351682705495!2d20.799563!3d41.111923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDA2JzQyLjkiTiAyMMKwNDcnNTguNCJF!5e0!3m2!1smk!2smk!4v1745522824478!5m2!1smk!2smk"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== CTA BANNER ===== -->
+        <div class="cta-banner">
+            <h3>Ready to set sail?</h3>
+            <p>Book your unforgettable Lake Ohrid experience today and discover why our guests keep coming back.</p>
+            <a href="toursPage.html" class="btn-gold">View Our Tours</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <div class="container">
+        <div class="footer-logo">
+            <img src="labinologo.png" alt="Labino Boats" height="50">
+        </div>
+        <div class="social-icons">
+            <div class="social-icon" onclick="window.open('https://www.facebook.com/people/Labino-Cruises-Ohrid/100049803884439/#')">
+                <img src="icons/facebook.png" alt="Facebook">
+            </div>
+            <div class="social-icon" onclick="window.open('https://www.instagram.com/labinocruises?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')">
+                <img src="icons/instagram.png" alt="Instagram">
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <p>&copy; 2025 Labino Boats. All rights reserved.  Made by pazarkoskid.</p>
     </div>
 </footer>
+
 </body>
 </html>

@@ -7,81 +7,548 @@
     <meta name="google-site-verification" content="9ia9QLdzLAjz0xZey73gsuowbn9v3GBxU7uvOj2AClY" />
     <meta name="keywords" content="Labino Boats, ohrid boats,ohrid rental boats, boat rental">
     <title>Our Tours - Labino Boats Ohrid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.bundle.js"></script>
     <style>
+        :root {
+            --teal-deep: #0d4f5c;
+            --teal-mid: #1a6b7a;
+            --teal-light: #2e8a9a;
+            --teal-water: #3fa9bf;
+            --gold: #e8b842;
+            --gold-light: #f5d97a;
+            --gold-deep: #c89324;
+            --cream: #f5ecd7;
+            --cream-soft: #faf4e3;
+            --dark-navy: #0a2a35;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+            font-family: 'Inter', sans-serif;
+            color: #2a2a2a;
+            background-color: var(--cream-soft);
+            margin: 0;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            background: linear-gradient(135deg, var(--teal-deep), var(--teal-mid)) !important;
+            box-shadow: 0 4px 20px rgba(13, 79, 92, 0.25);
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            color: var(--cream) !important;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--cream) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold-light) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 70%;
+        }
+
+        .navbar-toggler {
+            border-color: var(--gold);
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--cream);
+            overflow: hidden;
+            background:
+                    linear-gradient(135deg, rgba(10, 42, 53, 0.7), rgba(13, 79, 92, 0.55)),
+                    url('images/medium.jpg') center/cover no-repeat;
+            padding: 100px 20px 80px;
+        }
+
+        .page-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 42, 53, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .page-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            border-radius: 30px;
+            margin-bottom: 24px;
+            background: rgba(13, 79, 92, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .page-header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 18px;
+            text-shadow:
+                    2px 2px 0 var(--teal-deep),
+                    4px 4px 20px rgba(0,0,0,0.5);
+            line-height: 1;
+        }
+
+        .page-header p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1rem, 1.6vw, 1.2rem);
+            color: var(--cream-soft);
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ========== WAVE DIVIDER ========== */
+        .wave-divider {
+            position: relative;
+            height: 80px;
+            margin-top: -80px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .wave-divider svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* ========== TOURS LIST ========== */
+        .tours-list {
+            padding: 70px 0 90px;
+            background: var(--cream-soft);
         }
 
         .tour-card {
-            border-radius: 12px;
-            background-color: #fff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            padding: 1.5rem;
-            margin-top: 20px;
-        }
-
-        .tour-img {
-            border-radius: 10px;
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-
-        #book-now-button{
-            width: 100%;
-            height: 50px;
-            object-fit: cover;
-            margin-top: 10px;
-            background: #2193b0;
+            background: white;
             border-radius: 20px;
-            font-weight: bold;
-            color: white;
-            border-color: white;
-            font-size: large;
+            box-shadow: 0 8px 30px rgba(13, 79, 92, 0.1);
+            border: 1px solid rgba(232, 184, 66, 0.2);
+            overflow: hidden;
+            margin-bottom: 50px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .info-label {
-            font-weight: 600;
-            color: #2193b0;
-            font-size: large;
+        .tour-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 44px rgba(13, 79, 92, 0.18);
         }
 
-        .info-value {
-            font-weight: 500;
-            font-size: 1rem;
+        .tour-card-img-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 360px;
         }
 
-        .highlight i,
-        .includes i {
-            color: #6f42c1;
-            margin-right: 8px;
+        .tour-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
         }
 
-        .highlight p,
-        .includes div {
-            margin: 0.25rem 0;
+        .tour-card:hover .tour-card-img-wrap img {
+            transform: scale(1.05);
         }
 
-        .includes div {
+        .tour-card-img-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 79, 92, 0.65) 0%, rgba(13, 79, 92, 0.1) 50%, transparent 100%);
+        }
+
+        .tour-card-img-title {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
             text-align: center;
-            font-size: 0.9rem;
+            z-index: 2;
+            padding: 0 20px;
         }
 
-        .includes i {
-            font-size: 1.5rem;
+        .tour-card-img-title h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            color: var(--gold-light);
+            margin: 0;
+            text-shadow:
+                    2px 2px 0 var(--teal-deep),
+                    3px 3px 14px rgba(0,0,0,0.5);
+            line-height: 1;
+        }
+
+        .tour-card-body {
+            padding: 40px 36px 36px;
+        }
+
+        .tour-card-body p {
+            color: #555;
+            line-height: 1.75;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        /* ========== INFO STRIP ========== */
+        .info-strip {
+            background: linear-gradient(135deg, var(--teal-deep), var(--teal-mid));
+            border-radius: 14px;
+            padding: 22px 16px;
+            margin: 28px 0;
+            color: var(--cream);
+        }
+
+        .info-strip .info-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .info-strip .info-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: rgba(232, 184, 66, 0.3);
+        }
+
+        .info-strip .info-label {
             display: block;
-            margin-bottom: 4px;
+            font-size: 0.75rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 6px;
         }
 
+        .info-strip .info-value {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cream);
+        }
 
+        /* ========== HIGHLIGHTS ========== */
+        .tour-section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--teal-deep);
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tour-section-title::before {
+            content: "";
+            width: 6px;
+            height: 22px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        .highlights-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px;
+        }
+
+        .highlights-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(13, 79, 92, 0.12);
+            color: #444;
+            font-size: 0.98rem;
+        }
+
+        .highlights-list li:last-child {
+            border-bottom: none;
+        }
+
+        .highlights-list li::before {
+            content: "";
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .highlights-list li::after {
+            content: "✓";
+            position: absolute;
+            color: var(--dark-navy);
+            font-weight: 800;
+            font-size: 0.8rem;
+            margin-left: 5px;
+            line-height: 22px;
+        }
+
+        /* ========== INCLUDES ========== */
+        .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .include-item {
+            background: var(--cream-soft);
+            border: 1px solid rgba(232, 184, 66, 0.35);
+            border-radius: 12px;
+            padding: 18px 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .include-item:hover {
+            background: white;
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(13, 79, 92, 0.1);
+        }
+
+        .include-item-icon {
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 10px;
+            background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(13, 79, 92, 0.2);
+        }
+
+        .include-item-icon img {
+            width: 22px;
+            height: 22px;
+            filter: brightness(0) invert(0.95) sepia(0.4) saturate(2) hue-rotate(5deg);
+        }
+
+        .include-item-label {
+            font-weight: 600;
+            color: var(--teal-deep);
+            font-size: 0.92rem;
+        }
+
+        /* ========== DIVIDER ========== */
+        .tour-divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(232, 184, 66, 0.6), transparent);
+            margin: 32px 0;
+        }
+
+        /* ========== BOOK BUTTON ========== */
+        .btn-book {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            color: var(--dark-navy);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            padding: 16px 30px;
+            border: 2px solid var(--gold-light);
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(232, 184, 66, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .btn-book:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(232, 184, 66, 0.55);
+            color: var(--dark-navy);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, var(--dark-navy), var(--teal-deep));
+            color: var(--cream);
+            padding: 50px 20px 25px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(232, 184, 66, 0.15);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .social-icon img {
+            width: 22px;
+            height: 22px;
+            filter: brightness(0) invert(0.95) sepia(0.4) saturate(2) hue-rotate(5deg);
+            transition: filter 0.3s ease;
+        }
+
+        .social-icon:hover img {
+            filter: brightness(0) invert(0.1);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 25px auto;
+            max-width: 300px;
+        }
+
+        footer p {
+            margin: 0;
+            color: rgba(245, 236, 215, 0.7);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .page-header {
+                min-height: 40vh;
+                padding: 80px 20px 60px;
+            }
+
+            .tour-card-img-wrap {
+                height: 240px;
+            }
+
+            .tour-card-body {
+                padding: 30px 22px 26px;
+            }
+
+            .info-strip {
+                padding: 16px 8px;
+            }
+
+            .info-strip .info-item {
+                margin-bottom: 12px;
+            }
+
+            .info-strip .info-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .info-strip .info-item:last-child {
+                margin-bottom: 0;
+            }
+        }
     </style>
-    <script src="js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="labinologo.png" alt="Labino Boats Logo" height="50">Labino Boats</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="labinologo.png" alt="Labino Boats Logo" height="44">
+            Labino Boats
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -95,268 +562,264 @@
         </div>
     </div>
 </nav>
-<div class="container py-4">
-    <h2 class="fw-bold text-light">Our Tours</h2>
-    <p class="mb-4 text-light">
-        Discover our carefully curated tours designed to showcase the best experiences. Each tour offers unique perspectives and unforgettable memories.
-    </p>
-    <div>
-    <div class="tour-card">
-        <h4 class="fw-bold mb-3">Mini Ohrid Tour</h4>
-        <img src="images/mini.jpg" alt="City Explorer" class="tour-img mb-3" />
 
-        <p class="text-muted">
-            The tour begins at the Ohrid harbor, where you board the catamaran. First, you pass by the Old Town, enjoying views of its ancient architecture and historical charm from the water. The catamaran then sails past Kaneo, one of the most beautiful and scenic spots in Ohrid, known for its church sitting on a steep cliff above the lake, offering breathtaking views.
-        </p>
-        <p class="text-muted">Next, the catamaran passes Labino Beach, a peaceful spot by the water, where you can admire its calm beauty from the boat. The tour concludes with a return to the harbor, offering you a chance to take in the stunning landscapes of the lake and its surroundings.</p>
-
-        <div class="row text-center mt-4 mb-3">
-            <div class="col-md-4">
-                <div class="info-label">Duration</div>
-                <div class="info-value">30 minutes</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Price</div>
-                <div class="info-value">25€</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Group Size</div>
-                <div class="info-value">Max 11 people</div>
-            </div>
-        </div>
-
-        <hr />
-
-        <div class="highlight mb-4">
-            <h6 class="fw-semibold mb-2">Highlights</h6>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Old Town Ohrid</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Church of St. John at Kaneo</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Labino Beach </p>
-        </div>
-
-        <hr />
-
-        <div class="includes">
-            <h6 class="fw-semibold mb-3">Includes</h6>
-            <div class="row">
-                <div class="col-3"><i class="fas fa-user-tie"><img src="icons/user.png" style="margin-left: 5px"></i>Guide</div>
-            </div>
-        </div>
-        <hr />
-        <div class="button-book mb-3">
-            <a href="contactPage.html" class="btn" style="width: 100%;
-            height: 50px;
-            object-fit: cover;
-            margin-top: 10px;
-            padding-top: 10px;
-            background: #6dd5ed;
-            border-radius: 20px;
-            font-weight: bold;
-            color: white;
-            border-color: white;
-            font-size: large;
-            text-align: center">Book now</a>
-        </div>
-    </div><div class="tour-card">
-        <h4 class="fw-bold mb-3">Medium Ohrid Tour</h4>
-        <img src="images/medium.jpg" alt="City Explorer" class="tour-img mb-3" />
-
-        <p class="text-muted">
-            Discover the beauty of Ohrid from a unique perspective aboard a relaxing catamaran tour. The journey begins at the Ohrid Harbor, taking you along the shoreline with panoramic views of the city's most iconic landmarks.
-        </p>
-        <p class="text-muted">
-            You’ll cruise past the Old Town, known for its charming stone houses, narrow streets, and rich cultural heritage. The tour continues with a breathtaking view of the Church of St. John at Kaneo, beautifully situated on a cliff above the lake.
-        </p>
-        <p class="text-muted">
-            Next, glide by Labino Beach, a peaceful and scenic spot perfect for enjoying the natural beauty of the lakeside. The route also includes a view of Villa "Biljana", the official residence used for hosting dignitaries, nestled among greenery above the lake.
-        </p>
-        <p class="text-muted">
-            The tour wraps up with a relaxing return to the Ohrid Harbor, leaving you with unforgettable views and a new appreciation for the city's lakeside charm.
-        </p>
-
-        <div class="row text-center mt-4 mb-3">
-            <div class="col-md-4">
-                <div class="info-label">Duration</div>
-                <div class="info-value">1 hour</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Price</div>
-                <div class="info-value">50€</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Group Size</div>
-                <div class="info-value">Max 11 people</div>
-            </div>
-        </div>
-
-        <hr />
-
-        <div class="highlight mb-4">
-            <h6 class="fw-semibold mb-2">Highlights</h6>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Old Town Ohrid</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Church of St. John at Kaneo</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Labino Beach</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Villa "Biljana"</p>
-        </div>
-
-        <hr />
-
-        <div class="includes">
-            <h6 class="fw-semibold mb-3">Includes</h6>
-            <div class="row">
-                <div class="col-3"><i class="fas fa-user-tie"><img src="icons/user.png" style="margin-left: 5px"></i>Guide</div>
-            </div>
-        </div>
-        <hr />
-        <div class="button-book mb-3">
-            <a href="contactPage.html" class="btn" style="width: 100%;
-            height: 50px;
-            object-fit: cover;
-            margin-top: 10px;
-            padding-top: 10px;
-            background: #6dd5ed;
-            border-radius: 20px;
-            font-weight: bold;
-            color: white;
-            border-color: white;
-            font-size: large;
-            text-align: center">Book now</a>
-        </div>
+<!-- ========== PAGE HEADER ========== -->
+<section class="page-header">
+    <div class="page-header-content">
+        <span class="page-eyebrow">★ &nbsp; Choose Your Adventure &nbsp; ★</span>
+        <h1>Our Tours</h1>
+        <p>Discover our carefully curated tours designed to showcase the best of Lake Ohrid. Each tour offers unique perspectives and unforgettable memories.</p>
     </div>
-    </div>
-    <div class="tour-card">
-        <h4 class="fw-bold mb-3">Full-Day Adventure</h4>
-        <img src="images/sveti-naum-ohridski.jpg" alt="City Explorer" class="tour-img mb-3" />
-        <p>
-            Discover the beauty of Ohrid from a unique perspective aboard a relaxing catamaran tour. The journey begins at the Ohrid Harbor, taking you along the shoreline with panoramic views of the city's most iconic landmarks.
-        </p>
-        <p>
-            You’ll cruise past the Old Town, known for its charming stone houses, narrow streets, and rich cultural heritage. The tour continues with a breathtaking view of the Church of St. John at Kaneo, beautifully situated on a cliff above the lake.
-        </p>
-        <p>
-            Next, glide by Labino Beach, a peaceful and scenic spot perfect for enjoying the natural beauty of the lakeside. The route also includes a view of Villa "Biljana", the official residence used for hosting dignitaries, nestled among greenery above the lake.
-        </p>
+</section>
 
-        <p class="text-muted">
-            From there, the catamaran ride continues along the eastern shore of Lake Ohrid, offering a scenic and relaxing experience. Shortly after, the tour passes by the lakeside village of Peštani, known for its traditional houses and peaceful atmosphere.
-        </p>
-        <p class="text-muted">
-            The first stop is at the Bay of Bones – Gradishte, an archaeological site and open-air museum built on the water, where you'll have a 30-minute break to explore.
-        </p>
-        <p class="text-muted">
-            Back on the catamaran, the journey continues past the charming village of Trpejca, often called the “Macedonian Saint-Tropez” for its crystal-clear waters and beautiful setting.
-        </p>
-        <p class="text-muted">
-            Next, the tour heads toward the Monastery "Holy Virgin of Zaumska", a hidden spiritual gem accessible only by water. Here, you’ll enjoy a 20-minute stop, ideal for a peaceful walk and some photos.
-        </p>
-        <p class="text-muted">
-            Finally, you arrive at the St. Naum Monastery, one of the most significant religious and historical sites in North Macedonia. You’ll have a 2-hour break to explore the monastery complex, visit the springs of the Crn Drim River, or relax by the lake.
-        </p>
-        <p class="text-muted">
-            The tour ends with a calm and scenic return to Ohrid Harbor, completing an unforgettable experience of nature, history, and culture from the waters of Lake Ohrid.
-        </p>
-
-        <div class="row text-center mt-4 mb-3">
-            <div class="col-md-4">
-                <div class="info-label">Duration</div>
-                <div class="info-value">6 hours</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Price</div>
-                <div class="info-value">25€ per person</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Group Size</div>
-                <div class="info-value">Max 11 people</div>
-            </div>
-        </div>
-
-        <hr />
-
-        <div class="highlight mb-4">
-            <h6 class="fw-semibold mb-2">Highlights</h6>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Villa "Biljana"</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Village of Peštani</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Bay of Bones – Gradishte (30 minutes)</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Village of Trpejca</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Monastery "Holy Virgin of Zaumska" (20 minutes)</p>
-            <p><img src="icons/check.png"><i class="fas fa-check-circle"></i>Monastery of Saint Naum (2 Hours)</p>
-
-        </div>
-
-        <hr />
-
-        <div class="includes">
-            <h6 class="fw-semibold mb-3">Includes</h6>
-            <div class="row">
-                <div class="col-3"><i class="fas fa-coffee"><img src="icons/water.png" style="margin-left: 5px"></i>Drinks</div>
-                <div class="col-3"><i class="fas fa-user-tie"><img src="icons/user.png" style="margin-left: 5px"></i>Guide</div>
-                <div class="col-3"><i class="fas fa-user-tie"><img src="icons/history.png" style="margin-left: 5px"></i>Breaks</div>
-                <div class="col-3"><i class="fas fa-camera"><img src="icons/photo-camera.png" style="margin-left: 5px"></i>Photo Stops</div>
-            </div>
-        </div>
-        <hr />
-        <div class="button-book mb-3">
-            <a href="contactPage.html" class="btn" style="width: 100%;
-            height: 50px;
-            object-fit: cover;
-            margin-top: 10px;
-            padding-top: 10px;
-            background: #6dd5ed;
-            border-radius: 20px;
-            font-weight: bold;
-            color: white;
-            border-color: white;
-            font-size: large;
-            text-align: center">Book now</a>
-        </div>
-    </div>
-    <div class="tour-card">
-        <h4 class="fw-bold mb-3">Private Charter</h4>
-        <img src="images/private.jpg" alt="Ohrid Boat" class="tour-img mb-3" />
-
-        <p class="text-muted">
-            Customize your own experience with our private catamaran charter. Perfect for special occasions, proposals, or family gatherings.
-        </p>
-
-        <div class="row text-center mt-4 mb-3">
-            <div class="col-md-4">
-                <div class="info-label">Duration</div>
-                <div class="info-value">6 hours</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Price</div>
-                <div class="info-value">250€</div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-label">Group Size</div>
-                <div class="info-value">Max 11 people</div>
-            </div>
-        </div>
-        <div class="button-book mb-3">
-            <a href="contactPage.html" class="btn" style="width: 100%;
-            height: 50px;
-            object-fit: cover;
-            margin-top: 10px;
-            padding-top: 10px;
-            background: #6dd5ed;
-            border-radius: 20px;
-            font-weight: bold;
-            color: white;
-            border-color: white;
-            font-size: large;
-            text-align: center">Book now</a>
-        </div>
-    </div>
+<!-- ========== WAVE DIVIDER ========== -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#faf4e3"/>
+    </svg>
 </div>
-</div>
-</div>
-</div>
-<footer class="bg-dark text-white text-center py-2">
+
+<!-- ========== TOURS LIST ========== -->
+<section class="tours-list">
     <div class="container">
-        <img src="icons/facebook.png" onclick="window.open('https://www.facebook.com/people/Labino-Cruises-Ohrid/100049803884439/#')" class="img-social" style="cursor: pointer; margin-top: 10px; margin-right: 10px" alt="social-media"><img src="icons/instagram.png" onclick="window.open('https://www.instagram.com/labinocruises?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')" class="img-social" style="cursor: pointer; margin-top: 10px;" alt="social-media">
-        <p style="margin-top: 5px">&copy; 2025 Labino Boats. All rights reserved.</p>
+
+        <!-- ===== MINI OHRID TOUR ===== -->
+        <div class="tour-card">
+            <div class="tour-card-img-wrap">
+                <img src="images/mini.jpg" alt="Mini Ohrid Tour" />
+                <div class="tour-card-img-title">
+                    <h2>Mini Ohrid Tour</h2>
+                </div>
+            </div>
+            <div class="tour-card-body">
+                <p>The tour begins at the Ohrid harbor, where you board the catamaran. First, you pass by the Old Town, enjoying views of its ancient architecture and historical charm from the water. The catamaran then sails past Kaneo, one of the most beautiful and scenic spots in Ohrid, known for its church sitting on a steep cliff above the lake, offering breathtaking views.</p>
+                <p>Next, the catamaran passes Labino Beach, a peaceful spot by the water, where you can admire its calm beauty from the boat. The tour concludes with a return to the harbor, offering you a chance to take in the stunning landscapes of the lake and its surroundings.</p>
+
+                <div class="info-strip">
+                    <div class="row g-0">
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">30 minutes</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Price</span>
+                            <span class="info-value">25€</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Group Size</span>
+                            <span class="info-value">Max 11 people</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h6 class="tour-section-title">Highlights</h6>
+                <ul class="highlights-list">
+                    <li>Old Town Ohrid</li>
+                    <li>Church of St. John at Kaneo</li>
+                    <li>Labino Beach</li>
+                </ul>
+
+                <hr class="tour-divider" />
+
+                <h6 class="tour-section-title">Includes</h6>
+                <div class="includes-grid">
+                    <div class="include-item">
+                        <div class="include-item-icon"><img src="icons/user.png" alt="Guide"></div>
+                        <div class="include-item-label">Guide</div>
+                    </div>
+                </div>
+
+                <hr class="tour-divider" />
+
+                <a href="contactPage.html" class="btn-book">Book Now</a>
+            </div>
+        </div>
+
+        <!-- ===== MEDIUM OHRID TOUR ===== -->
+        <div class="tour-card">
+            <div class="tour-card-img-wrap">
+                <img src="images/medium.jpg" alt="Medium Ohrid Tour" />
+                <div class="tour-card-img-title">
+                    <h2>Medium Ohrid Tour</h2>
+                </div>
+            </div>
+            <div class="tour-card-body">
+                <p>Discover the beauty of Ohrid from a unique perspective aboard a relaxing catamaran tour. The journey begins at the Ohrid Harbor, taking you along the shoreline with panoramic views of the city's most iconic landmarks.</p>
+                <p>You'll cruise past the Old Town, known for its charming stone houses, narrow streets, and rich cultural heritage. The tour continues with a breathtaking view of the Church of St. John at Kaneo, beautifully situated on a cliff above the lake.</p>
+                <p>Next, glide by Labino Beach, a peaceful and scenic spot perfect for enjoying the natural beauty of the lakeside. The route also includes a view of Villa "Biljana", the official residence used for hosting dignitaries, nestled among greenery above the lake.</p>
+                <p>The tour wraps up with a relaxing return to the Ohrid Harbor, leaving you with unforgettable views and a new appreciation for the city's lakeside charm.</p>
+
+                <div class="info-strip">
+                    <div class="row g-0">
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">1 hour</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Price</span>
+                            <span class="info-value">50€</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Group Size</span>
+                            <span class="info-value">Max 11 people</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h6 class="tour-section-title">Highlights</h6>
+                <ul class="highlights-list">
+                    <li>Old Town Ohrid</li>
+                    <li>Church of St. John at Kaneo</li>
+                    <li>Labino Beach</li>
+                    <li>Villa "Biljana"</li>
+                </ul>
+
+                <hr class="tour-divider" />
+
+                <h6 class="tour-section-title">Includes</h6>
+                <div class="includes-grid">
+                    <div class="include-item">
+                        <div class="include-item-icon"><img src="icons/user.png" alt="Guide"></div>
+                        <div class="include-item-label">Guide</div>
+                    </div>
+                </div>
+
+                <hr class="tour-divider" />
+
+                <a href="contactPage.html" class="btn-book">Book Now</a>
+            </div>
+        </div>
+
+        <!-- ===== FULL-DAY ADVENTURE ===== -->
+        <div class="tour-card">
+            <div class="tour-card-img-wrap">
+                <img src="images/sveti-naum-ohridski.jpg" alt="Full-Day Adventure" />
+                <div class="tour-card-img-title">
+                    <h2>Full-Day Adventure</h2>
+                </div>
+            </div>
+            <div class="tour-card-body">
+                <p>Discover the beauty of Ohrid from a unique perspective aboard a relaxing catamaran tour. The journey begins at the Ohrid Harbor, taking you along the shoreline with panoramic views of the city's most iconic landmarks.</p>
+                <p>You'll cruise past the Old Town, known for its charming stone houses, narrow streets, and rich cultural heritage. The tour continues with a breathtaking view of the Church of St. John at Kaneo, beautifully situated on a cliff above the lake.</p>
+                <p>Next, glide by Labino Beach, a peaceful and scenic spot perfect for enjoying the natural beauty of the lakeside. The route also includes a view of Villa "Biljana", the official residence used for hosting dignitaries, nestled among greenery above the lake.</p>
+                <p>From there, the catamaran ride continues along the eastern shore of Lake Ohrid, offering a scenic and relaxing experience. Shortly after, the tour passes by the lakeside village of Peštani, known for its traditional houses and peaceful atmosphere.</p>
+                <p>The first stop is at the Bay of Bones – Gradishte, an archaeological site and open-air museum built on the water, where you'll have a 30-minute break to explore.</p>
+                <p>Back on the catamaran, the journey continues past the charming village of Trpejca, often called the "Macedonian Saint-Tropez" for its crystal-clear waters and beautiful setting.</p>
+                <p>Next, the tour heads toward the Monastery "Holy Virgin of Zaumska", a hidden spiritual gem accessible only by water. Here, you'll enjoy a 20-minute stop, ideal for a peaceful walk and some photos.</p>
+                <p>Finally, you arrive at the St. Naum Monastery, one of the most significant religious and historical sites in North Macedonia. You'll have a 2-hour break to explore the monastery complex, visit the springs of the Crn Drim River, or relax by the lake.</p>
+                <p>The tour ends with a calm and scenic return to Ohrid Harbor, completing an unforgettable experience of nature, history, and culture from the waters of Lake Ohrid.</p>
+
+                <div class="info-strip">
+                    <div class="row g-0">
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">6 hours</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Price</span>
+                            <span class="info-value">25€ per person</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Group Size</span>
+                            <span class="info-value">Max 11 people</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h6 class="tour-section-title">Highlights</h6>
+                <ul class="highlights-list">
+                    <li>Villa "Biljana"</li>
+                    <li>Village of Peštani</li>
+                    <li>Bay of Bones – Gradishte (30 minutes)</li>
+                    <li>Village of Trpejca</li>
+                    <li>Monastery "Holy Virgin of Zaumska" (20 minutes)</li>
+                    <li>Monastery of Saint Naum (2 Hours)</li>
+                </ul>
+
+                <hr class="tour-divider" />
+
+                <h6 class="tour-section-title">Includes</h6>
+                <div class="includes-grid">
+                    <div class="include-item">
+                        <div class="include-item-icon"><img src="icons/water.png" alt="Drinks"></div>
+                        <div class="include-item-label">Drinks</div>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-item-icon"><img src="icons/user.png" alt="Guide"></div>
+                        <div class="include-item-label">Guide</div>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-item-icon"><img src="icons/history.png" alt="Breaks"></div>
+                        <div class="include-item-label">Breaks</div>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-item-icon"><img src="icons/photo-camera.png" alt="Photo Stops"></div>
+                        <div class="include-item-label">Photo Stops</div>
+                    </div>
+                </div>
+
+                <hr class="tour-divider" />
+
+                <a href="contactPage.html" class="btn-book">Book Now</a>
+            </div>
+        </div>
+
+        <!-- ===== PRIVATE CHARTER ===== -->
+        <div class="tour-card">
+            <div class="tour-card-img-wrap">
+                <img src="images/private.jpg" alt="Private Charter" />
+                <div class="tour-card-img-title">
+                    <h2>Private Charter</h2>
+                </div>
+            </div>
+            <div class="tour-card-body">
+                <p>Customize your own experience with our private catamaran charter. Perfect for special occasions, proposals, or family gatherings — we'll tailor every detail to make your day on Lake Ohrid truly memorable.</p>
+
+                <div class="info-strip">
+                    <div class="row g-0">
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Duration</span>
+                            <span class="info-value">6 hours</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Price</span>
+                            <span class="info-value">250€</span>
+                        </div>
+                        <div class="col-md-4 info-item">
+                            <span class="info-label">Group Size</span>
+                            <span class="info-value">Max 11 people</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="contactPage.html" class="btn-book">Book Now</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <div class="container">
+        <div class="footer-logo">
+            <img src="labinologo.png" alt="Labino Boats" height="50">
+        </div>
+
+        <div class="social-icons">
+            <div class="social-icon" onclick="window.open('https://www.facebook.com/people/Labino-Cruises-Ohrid/100049803884439/#')">
+                <img src="icons/facebook.png" alt="Facebook">
+            </div>
+            <div class="social-icon" onclick="window.open('https://www.instagram.com/labinocruises?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')">
+                <img src="icons/instagram.png" alt="Instagram">
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <p>&copy; 2025 Labino Boats. All rights reserved. Made by pazarkoskid.</p>
     </div>
 </footer>
+
 </body>
 </html>
