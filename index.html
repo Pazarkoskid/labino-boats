@@ -407,42 +407,152 @@
             padding: 100px 20px;
             background: var(--cream-soft);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-section::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(232, 184, 66, 0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .video-section::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(63, 169, 191, 0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .video-wrapper {
+            position: relative;
+            margin: 50px auto 0;
+            max-width: 520px;
+            z-index: 1;
         }
 
         .video-container {
-            margin: 40px auto 0;
-            max-width: 280px;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 14px 40px rgba(13, 79, 92, 0.25);
-            border: 4px solid var(--gold);
             position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow:
+                0 24px 60px rgba(13, 79, 92, 0.28),
+                0 8px 20px rgba(13, 79, 92, 0.15);
+            border: 4px solid var(--gold);
+            background: linear-gradient(135deg, var(--dark-navy), var(--teal-deep));
+            height: 560px;
+        }
+
+        .video-container .carousel,
+        .video-container .carousel-inner {
+            height: 100%;
+        }
+
+        .video-container .carousel-item {
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
         }
 
         .video-container video {
             width: 100%;
-            height: 480px;
+            height: 100%;
             display: block;
-            object-fit: cover;
+            object-fit: contain;
+            background: var(--dark-navy);
         }
 
+        /* Navigation arrows — sit outside the video frame on desktop */
         .video-container .carousel-control-prev,
         .video-container .carousel-control-next {
-            width: 40px;
-            height: 40px;
-            background: var(--teal-deep);
+            width: 54px;
+            height: 54px;
+            background: var(--gold);
             border-radius: 50%;
             top: 50%;
             transform: translateY(-50%);
-            opacity: 0.9;
+            opacity: 1;
+            box-shadow: 0 6px 18px rgba(13, 79, 92, 0.35);
+            transition: all 0.3s ease;
+            border: 3px solid var(--cream-soft);
         }
 
-        .video-container .carousel-control-prev {
-            left: -20px;
+        .video-container .carousel-control-prev:hover,
+        .video-container .carousel-control-next:hover {
+            background: var(--gold-light);
+            transform: translateY(-50%) scale(1.08);
         }
 
-        .video-container .carousel-control-next {
-            right: -20px;
+        .video-container .carousel-control-prev { left: -27px; }
+        .video-container .carousel-control-next { right: -27px; }
+
+        .video-container .carousel-control-prev-icon,
+        .video-container .carousel-control-next-icon {
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            filter: brightness(0) saturate(100%) invert(11%) sepia(35%) saturate(1280%) hue-rotate(157deg) brightness(95%) contrast(95%);
+        }
+
+        /* Counter pill (1 / 7) */
+        .video-counter {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(10, 42, 53, 0.75);
+            color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(232, 184, 66, 0.4);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Dot indicators */
+        .video-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .video-dots button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--teal-mid);
+            background: transparent;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .video-dots button:hover {
+            background: var(--teal-light);
+            border-color: var(--teal-light);
+        }
+
+        .video-dots button.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            transform: scale(1.25);
+            box-shadow: 0 0 0 4px rgba(232, 184, 66, 0.18);
         }
 
         /* ========== TOURS ========== */
@@ -638,6 +748,24 @@
         }
 
         /* ========== RESPONSIVE ========== */
+        /* ========== TABLET ========== */
+        @media (max-width: 992px) {
+            .video-wrapper {
+                max-width: 460px;
+            }
+            .video-container {
+                height: 520px;
+            }
+            .video-container .carousel-control-prev { left: 10px; }
+            .video-container .carousel-control-next { right: 10px; }
+            .video-container .carousel-control-prev,
+            .video-container .carousel-control-next {
+                width: 46px;
+                height: 46px;
+                background: rgba(232, 184, 66, 0.92);
+            }
+        }
+
         @media (max-width: 768px) {
             .hero {
                 min-height: 75vh;
@@ -667,6 +795,53 @@
             .video-section,
             .tours-section {
                 padding: 70px 0;
+            }
+
+            .video-wrapper {
+                max-width: 100%;
+                margin: 36px 12px 0;
+            }
+            .video-container {
+                border-width: 3px;
+                border-radius: 18px;
+                height: 70vh;
+                max-height: 560px;
+                min-height: 420px;
+            }
+            .video-container .carousel-control-prev,
+            .video-container .carousel-control-next {
+                width: 42px;
+                height: 42px;
+            }
+            .video-container .carousel-control-prev { left: 8px; }
+            .video-container .carousel-control-next { right: 8px; }
+            .video-counter {
+                top: 10px;
+                right: 10px;
+                font-size: 0.72rem;
+                padding: 5px 11px;
+            }
+            .video-dots {
+                margin-top: 20px;
+                gap: 8px;
+            }
+            .video-dots button {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-section { padding: 60px 0; }
+            .video-container .carousel-control-prev,
+            .video-container .carousel-control-next {
+                width: 38px;
+                height: 38px;
+            }
+            .video-container .carousel-control-prev-icon,
+            .video-container .carousel-control-next-icon {
+                width: 16px;
+                height: 16px;
             }
         }
     </style>
@@ -866,48 +1041,102 @@
         <span class="section-title-underline"></span>
         <p class="section-subtitle">Watch a glimpse of our unforgettable boat tours on Lake Ohrid.</p>
 
-        <div id="videoCarousel" class="carousel slide video-container" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <video controls poster="templates/1.jpeg">
-                        <source src="videos/0-02-05-1cde83bd3262c05a07cfda88a4c0636437b2d55579db40c5ee3a4a9234b70535_8393acf7bd247a7c.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+        <div class="video-wrapper">
+            <div id="videoCarousel" class="carousel slide video-container" data-bs-ride="false" data-bs-interval="false" data-bs-wrap="true">
+                <div class="video-counter"><span id="videoCounter">1</span> / <span id="videoTotal">7</span></div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <video preload="metadata" controls playsinline poster="templates/1.jpeg">
+                            <source src="videos/0-02-05-1cde83bd3262c05a07cfda88a4c0636437b2d55579db40c5ee3a4a9234b70535_8393acf7bd247a7c.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video preload="metadata" controls playsinline poster="templates/2.jpeg">
+                            <source src="videos/0-02-05-301fae94581ae089ffac8e7a0fad91a7684498183571f18a9cc9c8e0a2beb47d_af1b65856190a5d4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video preload="metadata" controls playsinline poster="templates/3.jpeg">
+                            <source src="videos/0-02-05-570086f6790e798914247fbccff2f019759dfc1e98ce225474be9366b3a1e9f8_7ba0a192e58a06b.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video preload="metadata" controls playsinline poster="templates/4.jpeg">
+                            <source src="videos/0-02-05-4763684f607f181b148fd3759818c3c7d3d0e2c246a5c3727fd4ff410e915415_ad1484e89a09e643.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video preload="metadata" controls playsinline poster="templates/5.jpeg">
+                            <source src="videos/0-02-05-e476fce4349db28d3a17f77cc147d32f32a83ef558637cb9db5fc8c210111edc_9a14d4ef6b080a5a.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video preload="metadata" controls playsinline poster="images/video1_thumb.jpg">
+                            <source src="videos/clip1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video preload="metadata" controls playsinline poster="images/video2_thumb.jpg">
+                            <source src="videos/clip2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <video controls poster="templates/2.jpeg">
-                        <source src="videos/0-02-05-301fae94581ae089ffac8e7a0fad91a7684498183571f18a9cc9c8e0a2beb47d_af1b65856190a5d4.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="carousel-item">
-                    <video controls poster="templates/3.jpeg">
-                        <source src="videos/0-02-05-570086f6790e798914247fbccff2f019759dfc1e98ce225474be9366b3a1e9f8_7ba0a192e58a06b.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="carousel-item">
-                    <video controls poster="templates/4.jpeg">
-                        <source src="videos/0-02-05-4763684f607f181b148fd3759818c3c7d3d0e2c246a5c3727fd4ff410e915415_ad1484e89a09e643.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="carousel-item">
-                    <video controls poster="templates/5.jpeg">
-                        <source src="videos/0-02-05-e476fce4349db28d3a17f77cc147d32f32a83ef558637cb9db5fc8c210111edc_9a14d4ef6b080a5a.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev" aria-label="Previous video">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next" aria-label="Next video">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
+            <div class="video-dots" id="videoDots" role="tablist" aria-label="Video selector"></div>
         </div>
     </div>
 </section>
+
+<script>
+    (function() {
+        const carouselEl = document.getElementById('videoCarousel');
+        if (!carouselEl) return;
+        const items = carouselEl.querySelectorAll('.carousel-item');
+        const total = items.length;
+        const counterEl = document.getElementById('videoCounter');
+        const totalEl = document.getElementById('videoTotal');
+        const dotsContainer = document.getElementById('videoDots');
+        if (totalEl) totalEl.textContent = total;
+
+        // Build dot indicators
+        const dots = [];
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.setAttribute('aria-label', 'Go to video ' + (i + 1));
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                bootstrap.Carousel.getOrCreateInstance(carouselEl).to(i);
+            });
+            dotsContainer.appendChild(dot);
+            dots.push(dot);
+        }
+
+        // Pause all videos and reset on slide change — prevents lingering audio
+        carouselEl.addEventListener('slide.bs.carousel', function(e) {
+            carouselEl.querySelectorAll('video').forEach(v => {
+                v.pause();
+                v.currentTime = 0;
+            });
+            const idx = e.to;
+            if (counterEl) counterEl.textContent = idx + 1;
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        });
+    })();
+</script>
 
 <!-- ========== TOURS ========== -->
 <section class="tours-section">
