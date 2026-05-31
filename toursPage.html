@@ -506,6 +506,40 @@
             font-size: 0.9rem;
             letter-spacing: 0.5px;
         }
+        /* ========== HIGHLIGHTS GALLERY ========== */
+        .hl-gallery{position:relative;overflow:hidden;border-radius:14px;margin:20px 0 10px;}
+        .hl-track{display:flex;transition:transform 0.4s cubic-bezier(.4,0,.2,1);}
+        .hl-slide{min-width:100%;position:relative;height:220px;overflow:hidden;border-radius:14px;}
+        .hl-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+        .hl-slide-caption{
+            position:absolute;bottom:0;left:0;right:0;
+            padding:10px 14px;
+            background:linear-gradient(to top,rgba(10,42,53,0.85),transparent);
+            color:var(--cream);
+            font-family:'Playfair Display',serif;
+            font-size:14px;font-weight:600;
+        }
+        .hl-btn{
+            position:absolute;top:50%;transform:translateY(-50%);
+            width:36px;height:36px;border-radius:50%;
+            background:rgba(10,42,53,0.65);
+            border:1.5px solid rgba(232,184,66,0.7);
+            color:var(--gold-light);font-size:20px;
+            display:flex;align-items:center;justify-content:center;
+            cursor:pointer;z-index:5;transition:background .2s;
+            line-height:1;padding:0;
+        }
+        .hl-btn:hover{background:rgba(13,79,92,0.95);}
+        .hl-btn-prev{left:10px;}
+        .hl-btn-next{right:10px;}
+        .hl-dots{display:flex;justify-content:center;gap:7px;margin-top:10px;}
+        .hl-dot{
+            width:8px;height:8px;border-radius:50%;
+            background:rgba(13,79,92,0.25);
+            border:none;cursor:pointer;padding:0;
+            transition:background .2s,transform .2s;
+        }
+        .hl-dot.active{background:var(--gold-deep);transform:scale(1.3);}
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
@@ -540,7 +574,6 @@
                 margin-bottom: 0;
             }
         }
-
         footer .author-link {
             color: var(--gold-light);
             text-decoration: none;
@@ -635,6 +668,30 @@
 
                 <hr class="tour-divider" />
 
+                <div class="hl-gallery" id="g-mini">
+                    <div class="hl-track" id="t-mini">
+                        <div class="hl-slide">
+                            <img src="images/mini.jpg" alt="Old Town Ohrid">
+                            <div class="hl-slide-caption">Old Town Ohrid</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/kaneo.png" alt="Church of St. John at Kaneo" style="object-position: right center;">
+                            <div class="hl-slide-caption">Church of St. John at Kaneo</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/Labino-Beach.png" alt="Labino Beach" style="object-position: center center;">
+                            <div class="hl-slide-caption">Labino Beach</div>
+                        </div>
+                    </div>
+                    <button class="hl-btn hl-btn-prev" onclick="hlSlide('t-mini','d-mini',-1)">&#8249;</button>
+                    <button class="hl-btn hl-btn-next" onclick="hlSlide('t-mini','d-mini',1)">&#8250;</button>
+                </div>
+                <div class="hl-dots" id="d-mini">
+                    <button class="hl-dot active" onclick="hlGoTo('t-mini','d-mini',0)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-mini','d-mini',1)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-mini','d-mini',2)"></button>
+                </div>
+
                 <h6 class="tour-section-title">Includes</h6>
                 <div class="includes-grid">
                     <div class="include-item">
@@ -689,6 +746,36 @@
                 </ul>
 
                 <hr class="tour-divider" />
+
+                <div class="hl-gallery" id="g-medium">
+                    <div class="hl-track" id="t-medium">
+                        <div class="hl-slide">
+                            <img src="images/mini.jpg" alt="Old Town Ohrid">
+                            <div class="hl-slide-caption">Old Town Ohrid</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/kaneo.png" alt="Church of St. John at Kaneo" style="object-position: right center;">
+                            <div class="hl-slide-caption">Church of St. John at Kaneo</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/Labino-Beach.png" alt="Labino Beach" style="object-position: center center;">
+                            <div class="hl-slide-caption">Labino Beach</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/villatito-1.jpg" alt='Villa "Biljana"'>
+                            <div class="hl-slide-caption">Villa "Biljana"</div>
+                        </div>
+                    </div>
+                    <button class="hl-btn hl-btn-prev" onclick="hlSlide('t-medium','d-medium',-1)">&#8249;</button>
+                    <button class="hl-btn hl-btn-next" onclick="hlSlide('t-medium','d-medium',1)">&#8250;</button>
+                </div>
+                <div class="hl-dots" id="d-medium">
+                    <button class="hl-dot active" onclick="hlGoTo('t-medium','d-medium',0)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-medium','d-medium',1)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-medium','d-medium',2)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-medium','d-medium',3)"></button>
+                </div>
+
 
                 <h6 class="tour-section-title">Includes</h6>
                 <div class="includes-grid">
@@ -751,6 +838,45 @@
                 </ul>
 
                 <hr class="tour-divider" />
+
+                <div class="hl-gallery" id="g-full">
+                    <div class="hl-track" id="t-full">
+                        <div class="hl-slide">
+                            <img src="Highlights/villatito-1.jpg" alt='Villa "Biljana"'>
+                            <div class="hl-slide-caption">Villa "Biljana"</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/pestani.jpg" alt="Village of Peštani">
+                            <div class="hl-slide-caption">Village of Peštani</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/bay%20of%20bones.jpg" alt="Bay of Bones – Gradishte">
+                            <div class="hl-slide-caption">Bay of Bones – Gradishte</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/TRPEJCA.00_03_40_17.Still012.jpg" alt="Village of Trpejca" style="object-position: center center;">
+                            <div class="hl-slide-caption">Village of Trpejca</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/zaum_1.jpg" alt='Monastery "Holy Virgin of Zaumska"' style="object-position: center center;">
+                            <div class="hl-slide-caption">Monastery "Holy Virgin of Zaumska"</div>
+                        </div>
+                        <div class="hl-slide">
+                            <img src="Highlights/sv.naum.jpg" alt="Monastery of Saint Naum">
+                            <div class="hl-slide-caption">Monastery of Saint Naum</div>
+                        </div>
+                    </div>
+                    <button class="hl-btn hl-btn-prev" onclick="hlSlide('t-full','d-full',-1)">&#8249;</button>
+                    <button class="hl-btn hl-btn-next" onclick="hlSlide('t-full','d-full',1)">&#8250;</button>
+                </div>
+                <div class="hl-dots" id="d-full">
+                    <button class="hl-dot active" onclick="hlGoTo('t-full','d-full',0)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-full','d-full',1)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-full','d-full',2)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-full','d-full',3)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-full','d-full',4)"></button>
+                    <button class="hl-dot" onclick="hlGoTo('t-full','d-full',5)"></button>
+                </div>
 
                 <h6 class="tour-section-title">Includes</h6>
                 <div class="includes-grid">
@@ -836,4 +962,34 @@
 </footer>
 
 </body>
+<script>
+    const _hlState = {};
+    function hlSlide(tid, did, dir) {
+        const track = document.getElementById(tid);
+        const dots = document.getElementById(did).querySelectorAll('.hl-dot');
+        const total = track.children.length;
+        if (!_hlState[tid]) _hlState[tid] = 0;
+        _hlState[tid] = (_hlState[tid] + dir + total) % total;
+        track.style.transform = `translateX(-${_hlState[tid] * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === _hlState[tid]));
+    }
+    function hlGoTo(tid, did, idx) {
+        const track = document.getElementById(tid);
+        const dots = document.getElementById(did).querySelectorAll('.hl-dot');
+        _hlState[tid] = idx;
+        track.style.transform = `translateX(-${idx * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+    // Touch swipe за сите галерии
+    document.querySelectorAll('.hl-gallery').forEach(el => {
+        let sx = 0;
+        const tid = el.querySelector('.hl-track').id;
+        const did = el.nextElementSibling.id;
+        el.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
+        el.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - sx;
+            if (Math.abs(dx) > 40) hlSlide(tid, did, dx < 0 ? 1 : -1);
+        }, {passive:true});
+    });
+</script>
 </html>
